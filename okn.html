@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OKN</title>
+		<link type="text/css" rel="stylesheet" href="stylesheets/okn.css" />
+		<script src="javascripts/jquery-1.11.2.min.js"></script>
+		<style>
+		
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+</style>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Courgette';
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+</style>
+	</head>
+	<body>
+		<p id="doctor"></p>
+		<p id="demo"></p>
+		<div class='overflow'>
+		<p id='limit'>One more try...</p>
+		<div class = 'QUESTION 1'>
+			<div id = 'stripes1'><img src="pictures/stripes.jpg" alt="stripes" width="30%"/></div>
+			<div class = 'answer1'>
+				<div id='button1'><button onclick="start1()">I'm ready to count!</button></div>
+				<p id = 'question1'>How many black stripes did you count?</p>
+				<input type="number" id="myText1" value="Some text...">
+				<button onclick="myFunction1()">Answer</button>
+			</div>
+		</div>
+			
+		
+	<div id="home"><img src="pictures/home.png" /></div>
+		<script>
+
+function start1() {
+	$('#stripes1 img').animate({
+		top: '-=200%'
+	}, 7000);
+	$('#stripes1 img').fadeOut(0);
+	$('#stripes1 img').animate({
+	top: '+=200%'
+	}, 100);
+	$('#stripes1 img').fadeIn(function(){
+		$("#limit").fadeIn(1000);
+		$("#limit").fadeOut(1000);
+	});
+	$('#stripes1 img').animate({
+		top: '-=200%'
+	}, 7000);
+	$('#stripes1 img').fadeOut(0);
+	$('#stripes1 img').animate({
+	top: '+=200%'
+	}, 100);
+	$('#stripes1 img').fadeOut(function(){
+		$('#button1 button').hide();
+	});
+	
+};
+
+function myFunction1() {
+  var x = document.getElementById("myText1").value; 
+  var count = 0;
+  if (x == 7){
+  	count += 1;
+  	$('.answer1').fadeOut();
+  	$('#stripes1').fadeOut();
+  	document.getElementById("demo").innerHTML = "You scored: " + count + "/1.";
+  	var message = "";
+  	if (count == 1) {
+	message = "Awesome! Your results suggests strong ability in focusing on different objects in passing.";
+	}else {
+	message = "Your results suggests an issue concerning your eye's ability to focus on different objects in passing. Please consider seeking professional diagnosis.";
+}
+document.getElementById("doctor").innerHTML = message;
+ 
+  	
+  }
+  else {
+  	$('.answer1').fadeOut();
+  	$('#stripes1').fadeOut();
+  	document.getElementById("demo").innerHTML = "You scored: " + count + "/1.";
+  	var message = "";
+  	if (count == 1) {
+	message = "Awesome! Your results suggests strong ability in focusing on different objects in passing.";
+	}else {
+	message = "Your results suggests an issue concerning your eye's ability to focus on different objects in passing. Please consider seeking professional diagnosis.";
+}
+document.getElementById("doctor").innerHTML = message; 
+
+  }
+}
+$("#home img").click(function(){
+		window.location.href = "homepage.html";
+});
+
+		</script>
+		</div>
+	</body>	
+</html>
