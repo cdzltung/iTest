@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saccades</title>
+		<link type="text/css" rel="stylesheet" href="stylesheets/saccades.css" />
+		<script src="javascripts/jquery-1.11.2.min.js"></script>
+	</head>
+	<body>
+		<div id="star1"><img src="pictures/star.png" /></div>
+		<div id="star2"><img src="pictures/star.png" /></div>
+		<div id="circle1"><img src="pictures/circle.png" /></div>
+		<div id="circle2"><img src="pictures/circle.png" /></div>
+		<div id="startbutton"><button onclick="startanimation()">Start</button></div>
+		<p id="demo"></p>
+		<p id="doctor"></p>
+		<div class='questionboxes13'>
+			<div id='questionbox1'></div>
+			<div id='questionbox2'></div>
+			<div id='questionbox3'></div>
+		</div>
+		<div class='questionboxes46'>
+			<div id='questionbox4'></div>
+			<div id='questionbox5'></div>
+			<div id='questionbox6'></div>
+		</div>
+		<div class='shadows'>
+			<div id='shadow1'></div>
+			<div id='shadow2'></div>
+			<div id='shadow3'></div>
+		</div>
+		<div id='shape1'><a>What was the last shape you saw on the left?</a></div>
+		<div id='shape2'><a>What was the last shape you saw on the right?</a></div>
+
+		<div class='set1'>
+			<div class = 'questions1'>
+				<div id="answer1"><a>Circle</a></div>
+				<div id="answer2"><a>Star</a></div>
+				<div id="answer3"><a>Not Sure</a></div>
+			</div>
+		</div>
+		<div class='set2'>
+			<div class = 'questions2'>
+				<div id="answer4"><a>Circle</a></div>
+				<div id="answer5"><a>Star</a></div>
+				<div id="answer6"><a>Not Sure</a></div>
+			</div>
+		</div>
+		<div id="home"><img src="pictures/home.png" /></div>
+		<script>
+		//delay might not start from 0 - might be based off of another effect 
+		function startanimation() {
+		$("#startbutton button").fadeOut(500);
+			$("#star1 img").fadeIn(500);
+			$("#star1 img").fadeOut(0);
+			$("#circle2 img").delay(700).fadeIn(500);
+			$("#circle2 img").fadeOut(0);
+			$("#circle1 img").delay(1400).fadeIn(500);
+			$("#circle1 img").fadeOut(0);
+			$("#star2 img").delay(2100).fadeIn(500);
+			$("#star2 img").fadeOut(0, function(){
+				$("#star1 img").fadeIn(500);
+				$("#star1 img").fadeOut(0);
+				$("#star2 img").delay(600).fadeIn(500);
+				$("#star2 img").fadeOut(0);
+				$("#circle1 img").delay(1200).fadeIn(500);
+				$("#circle1 img").fadeOut(0, function (){
+					$("#star2 img").fadeIn(500);
+					$("#star2 img").fadeOut(0);
+					$("#circle1 img").delay(500).fadeIn(500);
+					$("#circle1 img").fadeOut(0);
+					$("#circle2 img").delay(1000).fadeIn(500);
+					$("#circle2 img").fadeOut(0);
+					$("#star1 img").delay(1500).fadeIn(500);
+					$("#star1 img").fadeOut(0, function (){
+						$("#circle2 img").fadeIn(500);
+						$("#circle2 img").fadeOut(0);
+						$("#star1 img").delay(400).fadeIn(500);
+						$("#star1 img").fadeOut(0, function (){
+							$("#circle2 img").fadeIn(500);
+							$("#circle2 img").fadeOut(0);
+							$("#circle1 img").delay(400).fadeIn(500);
+							$("#circle1 img").fadeOut(0);
+							$("#star2 img").delay(800).fadeIn(500);
+							$("#star2 img").fadeOut(0, function(){
+								$("#shape1").fadeIn();
+    							$(".questions1").fadeIn();
+    							$(".questionboxes13").fadeIn();
+							});
+							
+						});
+			
+	
+					});
+			
+				});
+			});
+			};
+			
+		var count = 0;
+		
+//QUESTION SET 1
+//Hovering effects for question 1 batch
+$("#questionbox1").mouseover(function(){
+	$("#shadow1").fadeIn();
+});
+$("#questionbox1").mouseout(function(){
+	$("#shadow1").fadeOut();
+});
+$("#questionbox2").mouseover(function(){
+	$("#shadow2").fadeIn();
+});
+$("#questionbox2").mouseout(function(){
+	$("#shadow2").fadeOut();
+});
+$("#questionbox3").mouseover(function(){
+	$("#shadow3").fadeIn();
+});
+$("#questionbox3").mouseout(function(){
+	$("#shadow3").fadeOut();
+});
+
+$("#questionbox1").click(function(){
+	count += 1;
+	alert("You are correct! Your current score is " + count + " !");
+    	$(".questions1").fadeOut(function(){
+    		$("#shape2").fadeIn();
+    		$(".questions2").fadeIn();
+    		$(".questionboxes46").fadeIn();
+    	});
+    	$(".questionboxes13").fadeOut()
+    	$("#shape1").fadeOut();
+    });
+
+$("#questionbox2").click(function(){
+	alert("Oops, that's not correct.");
+	$(".questions1").fadeOut(function(){
+    		$("#shape2").fadeIn();
+    		$(".questions2").fadeIn();
+    		$(".questionboxes46").fadeIn();
+    	});
+    	$(".questionboxes13").fadeOut()
+    	$("#shape1").fadeOut();
+});
+
+$("#questionbox3").click(function(){
+	alert("Oops, that's not correct.");
+	$(".questions1").fadeOut(function(){
+    		$("#shape2").fadeIn();
+    		$(".questions2").fadeIn();
+    		$(".questionboxes46").fadeIn();
+    	});
+    	$(".questionboxes13").fadeOut()
+    	$("#shape1").fadeOut();
+});
+//QUESTION SET 2
+//Hovering effects for question 2 batch
+$("#questionbox4").mouseover(function(){
+	$("#shadow1").fadeIn();
+});
+$("#questionbox4").mouseout(function(){
+	$("#shadow1").fadeOut();
+});
+$("#questionbox5").mouseover(function(){
+	$("#shadow2").fadeIn();
+});
+$("#questionbox5").mouseout(function(){
+	$("#shadow2").fadeOut();
+});
+$("#questionbox6").mouseover(function(){
+	$("#shadow3").fadeIn();
+});
+$("#questionbox6").mouseout(function(){
+	$("#shadow3").fadeOut();
+});
+
+$("#questionbox5").click(function(){
+	count += 1;
+	alert("You are correct! Your current score is " + count + " !");
+    	$(".questions2").fadeOut(function(){
+    		$("#shape2").fadeOut(0);
+    		$(".questionboxes46").fadeOut(0);
+    			document.getElementById("demo").innerHTML = "You scored: " + count + "/2.";
+    		 var message = "";
+	if (count == 0) {
+		message = "Please visit a doctor";
+	}else if (count == 1){
+		message = "There may be a potential issue with your eyesight. We advise you to visit your optomotrist.";
+	}else {
+		message = "Your eyes are functioning normally.";
+	}
+	document.getElementById("doctor").innerHTML = message;
+	$("#home img").fadeIn();
+    	});
+ 
+    });
+
+$("#questionbox4").click(function(){
+	alert("Oops, that's not correct.");
+	$(".questions2").fadeOut(function(){
+    		$("#shape2").fadeOut(0);
+    		$(".questionboxes46").fadeOut(0);
+    			document.getElementById("demo").innerHTML = "You scored: " + count + "/2.";
+    		 var message = "";
+	if (count == 0) {
+		message = "Please visit a doctor";
+	}else if (count == 1){
+		message = "There may be a potential issue with your eyesight. We advise you to visit your optomotrist.";
+	}else {
+		message = "Your eyes are functioning normally.";
+	}
+	document.getElementById("doctor").innerHTML = message;
+    	});
+});
+
+$("#questionbox6").click(function(){
+	alert("Oops, that's not correct.");
+	$(".questions2").fadeOut(function(){
+    		$("#shape2").fadeOut(0);
+    		$(".questionboxes46").fadeOut(0);
+    		document.getElementById("demo").innerHTML = "You scored: " + count + "/2.";
+    		 var message = "";
+	if (count == 0) {
+		message = "Please visit a doctor";
+	}else if (count == 1){
+		message = "There may be a potential issue with your eyesight. We advise you to visit your optomotrist.";
+	}else {
+		message = "Your eyes are functioning normally.";
+	}
+	document.getElementById("doctor").innerHTML = message;
+    	});
+});
+
+$("#home img").click(function(){
+		window.location.href = "homepage.html";
+});
+			
+			
+		</script>	
+	</body>	
+</html>
